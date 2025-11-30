@@ -2,7 +2,7 @@
 # For MCP's 1st Birthday Hackathon
 
 # ==================== Core Framework ====================
-gradio>=5.0.0
+gradio==6.0.1
 huggingface_hub>=0.25.0,<1.0.0
 fastapi[standard]
 uvicorn>=0.20.0

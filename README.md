@@ -8,8 +8,14 @@ sdk_version: "5.0.0"
 app_file: app.py
 pinned: false
 license: mit
+short_description: AI-powered codebase visualization with voice narration
 tags:
   - mcp-in-action-track-consumer
+  - mcp-in-action-track-enterprise
+  - mcp-in-action-track-creative
+  - building-mcp-track-consumer
+  - building-mcp-track-enterprise
+  - building-mcp-track-creative
   - mcp
   - gradio
   - llamaindex
@@ -43,7 +49,7 @@ tags:
 [![ElevenLabs](https://img.shields.io/badge/🎙️_ElevenLabs-Voice-000000)](https://elevenlabs.io)
 [![Modal](https://img.shields.io/badge/☁️_Modal-Deployed-00D4AA)](https://modal.com)
 
-**[🔗 Try it Live](https://huggingface.co/spaces/MCP-1st-Birthday/CodeAtlas)** • **[📺 Demo Video](#-demo-video)** • **[📱 Social Post](https://x.com/your-post-link)**
+**[🔗 Try it Live](https://huggingface.co/spaces/MCP-1st-Birthday/CodeAtlas)** • **[📺 Demo Video](#-demo-video)** • **[📱 Twitter Post](https://x.com/aghilsabu/status/1995249175336997350?s=20)** • **[💼 LinkedIn Post](https://www.linkedin.com/posts/aghilsabu_codeatlas-ai-powered-codebase-visualization-share-7401015482310393857-vHRg)**
 
 </div>
 
@@ -51,8 +57,9 @@ tags:
 
 ## 🎬 Demo Video
 
-<!-- Replace with your actual video link -->
-https://github.com/user-attachments/assets/YOUR_VIDEO_ID
+[![CodeAtlas Demo](https://img.youtube.com/vi/J8dcTLzNgpE/maxresdefault.jpg)](https://youtu.be/J8dcTLzNgpE)
+
+**[▶️ Watch on YouTube](https://youtu.be/J8dcTLzNgpE)**
 
 > *Watch CodeAtlas analyze a GitHub repository in real-time, generate architecture diagrams, and explain the codebase with voice narration.*
 

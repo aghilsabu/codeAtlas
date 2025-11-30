@@ -173,6 +173,7 @@ def make_footer() -> str:
     return '''
         <div class="footer">
             Built for MCP's 1st Birthday Hackathon 🎂 · 
-            Powered by Gemini + LlamaIndex + ElevenLabs + Modal
+            <a href="https://github.com/aghilsabu/codeAtlas" target="_blank">GitHub</a> · 
+            <a href="https://x.com/aghilsabu" target="_blank">@aghilsabu</a>
         </div>
     '''

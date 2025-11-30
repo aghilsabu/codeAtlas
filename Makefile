@@ -16,6 +16,16 @@ help: ## Show this help message
 	@echo ""
 
 install: ## Create venv and install dependencies
+	@echo "📦 Installing system dependencies (graphviz)..."
+	@if command -v apt-get >/dev/null 2>&1; then \
+		sudo apt-get update -qq && sudo apt-get install -y -qq graphviz; \
+	elif command -v brew >/dev/null 2>&1; then \
+		brew install graphviz; \
+	elif command -v yum >/dev/null 2>&1; then \
+		sudo yum install -y graphviz; \
+	else \
+		echo "⚠️  Please install graphviz manually"; \
+	fi
 	@echo "📦 Creating virtual environment..."
 	@$(PYTHON) -m venv $(VENV)
 	@$(VENV_PIP) install --upgrade pip

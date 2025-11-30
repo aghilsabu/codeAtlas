@@ -1,4 +1,4 @@
-.PHONY: install run dev clean deploy help
+.PHONY: install run dev clean modal-deploy modal-install modal-login help
 
 # Python configuration
 PYTHON = python3
@@ -42,9 +42,19 @@ dev: ## Run with auto-reload
 	@echo "🔧 Starting in dev mode..."
 	@GRADIO_WATCH_DIRS=. $(VENV_PYTHON) app.py
 
-deploy: ## Deploy backend to Modal
+modal-login: ## Authenticate with Modal (run once)
+	@echo "🔐 Authenticating with Modal..."
+	@$(VENV)/bin/modal token new
+	@echo "✅ Modal authenticated!"
+
+modal-install: ## Install Modal CLI in venv
+	@echo "📦 Installing Modal..."
+	@$(VENV_PIP) install modal
+	@echo "✅ Modal installed! Run 'make modal-login' to authenticate"
+
+modal-deploy: ## Deploy backend API to Modal
 	@echo "☁️  Deploying to Modal..."
-	@modal deploy modal_backend.py
+	@$(VENV)/bin/modal deploy modal_backend.py
 	@echo "✅ Deployed!"
 
 clean: ## Remove venv and cache files

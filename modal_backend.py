@@ -14,11 +14,12 @@ import json
 # Create Modal app
 app = modal.App(name="codeatlas-backend")
 
-# Container image with all dependencies
+# Container image with all dependencies and source code
 image = (
     modal.Image.debian_slim(python_version="3.12")
     .apt_install("graphviz", "fonts-liberation", "git")
     .pip_install(
+        "fastapi",
         "google-genai>=1.0.0",
         "llama-index-core>=0.11.0",
         "llama-index-llms-gemini>=0.4.0",
@@ -28,16 +29,8 @@ image = (
         "graphviz>=0.20.0",
         "requests>=2.31.0",
     )
-)
-
-# Mount source code (excluding data and cache)
-local_files = modal.Mount.from_local_dir(
-    ".",
-    remote_path="/app",
-    condition=lambda path: not any(x in path for x in [
-        "__pycache__", ".git", ".venv", "node_modules",
-        "data/", ".session_state.json", ".env",
-    ])
+    .add_local_dir("src", "/app/src", copy=True)
+    .add_local_file("app.py", "/app/app.py", copy=True)
 )
 
 
@@ -47,11 +40,9 @@ local_files = modal.Mount.from_local_dir(
 
 @app.function(
     image=image,
-    mounts=[local_files],
     cpu=2.0,
     memory=4096,
     timeout=300,
-    secrets=[modal.Secret.from_name("codeatlas-secrets", required_keys=[])],
 )
 @modal.web_endpoint(method="POST", docs=True)
 def generate_diagram(request: dict) -> dict:
@@ -137,11 +128,9 @@ def generate_diagram(request: dict) -> dict:
 
 @app.function(
     image=image,
-    mounts=[local_files],
     cpu=1.0,
     memory=2048,
     timeout=120,
-    secrets=[modal.Secret.from_name("codeatlas-secrets", required_keys=[])],
 )
 @modal.web_endpoint(method="POST", docs=True)
 def generate_voice(request: dict) -> dict:
@@ -213,11 +202,9 @@ def generate_voice(request: dict) -> dict:
 
 @app.function(
     image=image,
-    mounts=[local_files],
     cpu=2.0,
     memory=4096,
     timeout=300,
-    secrets=[modal.Secret.from_name("codeatlas-secrets", required_keys=[])],
 )
 @modal.web_endpoint(method="POST", docs=True)
 def analyze_codebase(request: dict) -> dict:

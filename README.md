@@ -64,32 +64,48 @@ https://github.com/user-attachments/assets/YOUR_VIDEO_ID
 <tr>
 <td width="50%">
 
-### 🏠 Generate Page
+### 1️⃣ Generate Page
 ![Generate Page](assets/screenshots/01_generate_page.png)
 *Enter a GitHub URL or upload a ZIP file*
 
 </td>
 <td width="50%">
 
-### 🗺️ Architecture Diagram
-![Architecture Diagram](assets/screenshots/02_explore_diagram.png)
-*AI-generated architecture visualization*
+### 2️⃣ Loading Diagram
+![Loading Diagram](assets/screenshots/02_loading_diagram.png)
+*AI analyzing and generating architecture*
 
 </td>
 </tr>
 <tr>
 <td width="50%">
 
-### 📜 History & Layout Panel
-![History & Layout Panel](assets/screenshots/03_explore_history_sidebar.png)
-*Browse past diagrams and adjust layout options*
+### 3️⃣ Generated Layout with Graph
+![Generated Layout](assets/screenshots/03_generated_layout.png)
+*AI-generated architecture visualization*
 
 </td>
 <td width="50%">
 
-### 💬 AI Chat & Voice
-![AI Chat & Voice](assets/screenshots/04_explore_chat_sidebar.png)
-*Chat with AI and listen to voice narration*
+### 4️⃣ Explore Tab - History & Layout Tools
+![History & Layout Sidebar](assets/screenshots/04_explore_history_sidebar.png)
+*Left sidebar with history load options and layout tools*
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 5️⃣ Explore Tab - Audio & Chat
+![Audio & Chat Sidebar](assets/screenshots/05_explore_chat_sidebar.png)
+*Right sidebar with ElevenLabs audio summary and chat*
+
+</td>
+<td width="50%">
+
+### 6️⃣ Settings Page
+![Settings Page](assets/screenshots/06_settings_page.png)
+*API keys for Gemini, ChatGPT, ElevenLabs and AI model dropdown*
 
 </td>
 </tr>

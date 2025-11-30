@@ -40,3 +40,4 @@ Thumbs.db
 
 # Gradio dev folder (if cloned)
 gradio/
+assets/screenshots/*.png

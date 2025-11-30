@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+codeatlas.log
+data/logs/
+
+# Data (runtime generated)
+data/diagrams/*.dot
+data/diagrams/*.svg
+data/diagrams/*.png
+data/diagrams/*.json
+data/audios/*.mp3
+
+# Session state (user-specific)
+.session_state.json
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Gradio dev folder (if cloned)
+gradio/

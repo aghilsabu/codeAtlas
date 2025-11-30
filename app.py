@@ -24,6 +24,7 @@ def main():
         theme=theme,
         css=custom_css,
         allowed_paths=[str(AUDIOS_DIR)],
+        ssr_mode=False,  # Disable experimental SSR to improve responsiveness
     )
 
 

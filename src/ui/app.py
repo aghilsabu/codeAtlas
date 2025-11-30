@@ -7,7 +7,7 @@ Implements the three-page layout: Generate, Explore, Settings.
 
 import os
 import json
-import asyncio
+import time
 import logging
 import gradio as gr
 from pathlib import Path
@@ -288,8 +288,8 @@ def create_app():
         stats_output = gr.HTML("")
         diagram_output = gr.HTML(make_loading_html("⏳", "Loading..."))
         
-        # Async process function
-        async def process_pending_request():
+        # Process function with progress updates
+        def process_pending_request():
             """Process a pending analysis request with streaming updates."""
             session = load_session_state()
             pending = session.get("pending_request")
@@ -312,10 +312,9 @@ def create_app():
                         node_count=node_count,
                         edge_count=edge_count,
                     )
-                    yield diagram, stats, dot_source
+                    return diagram, stats, dot_source
                 else:
-                    yield make_empty_state_html(), "", None
-                return
+                    return make_empty_state_html(), "", None
             
             # Get request details
             github_url = pending.get("github_url")
@@ -343,7 +342,7 @@ def create_app():
             # Step 1: Download/Process
             display_name = ""
             yield make_loading_html("📥", "Downloading repository..." if github_url else "Processing file..."), "", None
-            await asyncio.sleep(0.1)  # Allow UI to update
+            time.sleep(0.1)  # Allow UI to update
             
             loader = get_repository_loader()
             if github_url:
@@ -358,13 +357,13 @@ def create_app():
                 yield make_error_html(result.error), "", None
                 return
             
-            # Step 2: Show files found (display for 2s while not blocking)
+            # Step 2: Show files found (display briefly)
             yield make_loading_html(
                 "🔍", 
                 f"Extracted {result.stats.files_processed} files",
                 f"{result.stats.total_characters:,} characters • Preparing AI analysis..."
             ), "", None
-            await asyncio.sleep(1.5)  # Show extraction results for 2 seconds
+            time.sleep(0.5)  # Brief pause to show extraction results
             
             # Step 3: AI Analysis - this step shows while actual analysis happens
             yield make_loading_html(
@@ -372,12 +371,12 @@ def create_app():
                 "AI analyzing code structure...",
                 f"Using {model_choice}"
             ), "", None
-            await asyncio.sleep(1.5)  # Brief pause to render before heavy work
+            time.sleep(0.3)  # Brief pause to render before heavy work
             
             # Step 4: Generate diagram
             try:
                 yield make_loading_html("🗺️", "Generating architecture diagram...", f"{model_choice} • This may take a moment..."), "", None
-                await asyncio.sleep(0.1)  # Allow UI to update
+                time.sleep(0.1)  # Allow UI to update
                 
                 analyzer = CodeAnalyzer(api_key=api_key, model_name=model_name)
                 analysis = analyzer.generate_diagram(result.context)

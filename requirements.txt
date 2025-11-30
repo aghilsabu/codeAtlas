@@ -1,0 +1,40 @@
+# CodeAtlas - Dependencies
+# For MCP's 1st Birthday Hackathon
+
+# ==================== Core Framework ====================
+gradio>=5.0.0
+fastapi[standard]
+uvicorn>=0.20.0
+
+# ==================== AI/ML - LlamaIndex Integration ====================
+# LlamaIndex for RAG and advanced AI features ($1K LlamaIndex prize)
+llama-index-core>=0.11.0
+llama-index-llms-gemini>=0.4.0
+llama-index-llms-openai>=0.3.0
+
+# ==================== AI Providers ====================
+# Google Gemini - Primary AI engine ($10K API credits prize)
+google-genai>=1.0.0
+
+# OpenAI - ChatGPT integration (ChatGPT Pro + $500 credits prize)
+openai>=1.0.0
+
+# ==================== Voice - ElevenLabs ====================
+# ElevenLabs for voice narration (~$2K + AirPods prize)
+elevenlabs>=1.0.0
+
+# ==================== MCP Protocol ====================
+# FastMCP for MCP server implementation
+fastmcp>=0.1.0
+mcp>=1.0.0
+
+# ==================== Visualization ====================
+graphviz>=0.20.0
+
+# ==================== Utilities ====================
+requests>=2.31.0
+
+
+# ==================== Development ====================
+# ruff  # Linting
+# pytest  # Testing

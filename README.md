@@ -8,14 +8,8 @@ sdk_version: "5.0.0"
 app_file: app.py
 pinned: false
 license: mit
-short_description: AI-powered codebase visualization with voice narration
 tags:
   - mcp-in-action-track-consumer
-  - mcp-in-action-track-enterprise
-  - mcp-in-action-track-creative
-  - building-mcp-track-consumer
-  - building-mcp-track-enterprise
-  - building-mcp-track-creative
   - mcp
   - gradio
   - llamaindex
